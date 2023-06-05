@@ -15,6 +15,8 @@ from email.mime.text import MIMEText
 from email.utils import formatdate
 from email import encoders
 
+from smtplib import SMTPException
+
 #------------------------------------------------------------------------------------------
 
 def send_an_email():
@@ -46,7 +48,10 @@ def send_an_email():
        time.sleep(15)
        print("--------  Mail sent successfully  ------------")
     except SMTPException as error:
-        print ("Error")
+        print ("\n\nSending mail is unsuccessful")
+        print("****************reason****************\n")
+        print(error)
+        print("\n********************************")
 #-------------------------------------------------------------------
 
 now = datetime.datetime.now()
